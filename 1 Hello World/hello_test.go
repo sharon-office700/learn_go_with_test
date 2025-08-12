@@ -13,6 +13,12 @@ func Test(t *testing.T) {
 		fmt.Println("Passed test with name !!!")
 	})
 
+	t.Run("Triggering default case by sending telugu: ", func(t *testing.T){
+		got := Hello("Nair", "Telugu")
+		want := "Hello, Nair"
+		assertCorrectMessage(t, got, want)
+	})
+
 	t.Run("\nGoing for the default test case", func(t *testing.T){
 		got := Hello("", "")
 		want := "Hello, World"
@@ -40,7 +46,6 @@ func Test(t *testing.T) {
 			got := Hello("Sonu", key)
 			want := value + ", Sonu"
 			if got == want {
-				fmt.Println(got, "\t", want, " ✅ ")
 			} else if key == "" && value == "" {
 				got = Hello("", "")
 				want = "Hello, World"
@@ -59,4 +64,5 @@ func assertCorrectMessage(t testing.TB, got, want string) {
 	if got != want {
 		t.Errorf("got %q \nwant %q", got, want)
 	}
+	fmt.Println(got, "\t", want, " ✅ ")
 }
