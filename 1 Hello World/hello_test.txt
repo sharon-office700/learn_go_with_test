@@ -1,0 +1,28 @@
+package main
+
+import (
+	"testing"
+)
+
+func Test_Hello(t *testing.T) {
+	got := Hello()
+	want := "Hello, World"
+
+	if got != want {
+		t.Errorf("got %q \nwant %q", got, want)
+	}
+
+}
+
+/* so testing package kuch iss tarah se kaam karta hai
+function test_hello ya koi bhi test function jo hai vo *testing.T type ka argument accept karega
+functino mein 2 important cheeze hai
+1) got <Expectation>
+2) want <Reality>
+
+ and vo function phir ek if statement run karta hai , aur test karta hai if got != want then error throw karega and agar humara code if statement ko pass kar dega then humara test pass ho jaayega
+
+ tldr: if expectation != reality then throw error
+ if expectation == reality then test pass !!
+
+*/
