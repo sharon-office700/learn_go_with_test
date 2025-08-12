@@ -5,42 +5,50 @@ import (
 	"testing"
 )
 
-// func Test_Hello(t *testing.T) {
-// 	got := Hello("Chris")
-// 	want := "Hello, Chris"
-
-// 	if got != want {
-// 		t.Errorf("got %q \nwant %q", got, want)
-// 	}
-// }
-
 func Test(t *testing.T) {
 	t.Run("Saying hello to people : ", func(t *testing.T){
-		got := Hello("Chris")
+		got := Hello("Chris", "")
 		want := "Hello, Chris"
-
-		if got != want {
-			t.Errorf("1st test function fail\n got %q \nwant %q", got, want)
-		}
 		assertCorrectMessage(t, got, want)
 		fmt.Println("Passed test with name !!!")
 	})
 
 	t.Run("\nGoing for the default test case", func(t *testing.T){
-		got := Hello("")
+		got := Hello("", "")
 		want := "Hello, World"
-
-		if got != want {
-			t.Errorf("Default test cases failed too: \ngot %q want %q", got, want)
-		}
 		assertCorrectMessage(t, got, want)
 		fmt.Println("Passes default test cases as well !!!!")
 	})
 
-	// t.Run("Test run for German language: ", func(t *testing.T))
+	t.Run("Testing for the German language: ", func(t *testing.T){
+		got := Hello("Heinz", "German")
+		want := "Hallo, Heinz"
+		assertCorrectMessage(t, got, want)
+	})
+
+	t.Run("Looping through languages: ", func(t *testing.T){
+		myLang := map[string]string{
+			"German": 	"Hallo", 
+			"French": 	"Monsieur", 
+			"Hindi": 	"Namaste", 
+			"Marathi": 	"Namaskar", 
+			"Arabic": 	"Asalaam Waliekum", 
+			"Spanish": 	"Hola"}
+
+		for key, value := range myLang{
+			got := Hello("Sonu", key)
+			want := value + ", Sonu"
+			if got == want {
+				fmt.Println(got, "\t", want, " ✅ ")
+			}
+			assertCorrectMessage(t, got, want)
+		}
+
+	})
 }
 
-func assertCorrectMessage(t *testing.T, got, want string) {
+
+func assertCorrectMessage(t testing.TB, got, want string) {
 	t.Helper()
 	if got != want {
 		t.Errorf("got %q \nwant %q", got, want)
