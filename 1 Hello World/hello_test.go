@@ -33,13 +33,19 @@ func Test(t *testing.T) {
 			"Hindi": 	"Namaste", 
 			"Marathi": 	"Namaskar", 
 			"Arabic": 	"Asalaam Waliekum", 
-			"Spanish": 	"Hola"}
+			"Spanish": 	"Hola",
+			"":			""}  //when we pass an empty string it defaults to English 
 
 		for key, value := range myLang{
 			got := Hello("Sonu", key)
 			want := value + ", Sonu"
 			if got == want {
 				fmt.Println(got, "\t", want, " ✅ ")
+			} else if key == "" && value == "" {
+				got = Hello("", "")
+				want = "Hello, World"
+				fmt.Println("Default case triggered ==> ", got, "\t", want, " ✅ ")
+				assertCorrectMessage(t, got, want)
 			}
 			assertCorrectMessage(t, got, want)
 		}
