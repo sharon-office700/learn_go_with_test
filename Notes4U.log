@@ -2,15 +2,51 @@ Discipline
 
 Let's go over the cycle again
 
-    Write a test
+Discipline => The TDD Feedback Loop
+1. Write a test
+Pehle test likho — main code likhne se pehle.
+Yeh step ensure karta hai ki tum apne desired behavior ko pehle define kar rahe ho.
 
-    Make the compiler pass
+2. Make the compiler pass
+Jab tum test likhte ho, compiler complain karega kyunki tumhara main code abhi test ke hisaab se exist nahi karta.
+Error dekhne do — isse tum familiar ho jaoge ki code abhi kahan missing hai.
 
-    Run the test, see that it fails and check the error message is meaningful
+3. Run the test, see it fail, and check the error message
+Test run karo aur intentionally fail hote hue dekho.
+Error message kaafi meaningful hona chahiye — yeh tumhe help karega samajhne mein ki
 
-    Write enough code to make the test pass
+code fail kyon ho raha hai,
 
-    Refactor
+aur kaunse additional test cases ya edge cases add karne chahiye.
+
+4. Write enough code to make the test pass
+Ab bas utna code likho jitna zaroori hai test pass karne ke liye.
+Over-engineer mat karo — focus sirf test pass karane par ho.
+
+5. Refactor
+Ab code ko clean aur optimize karo:
+
+Repetitive constants ko ek jagah group karo
+
+Complex if-else ladders ko simplify karke switch use karo (agar suitable ho)
+
+Code ka organization, naming aur readability improve karo
+
+6. Repeat the cycle
+Agar aur test cases add karne ho, toh unke liye bhi yehi cycle repeat karo.
+Agar aur test cases add karne hai toh add kar sakte ho, and repeat the cycle
+
+
+Why follow this loop?
+Shuru mein yeh tedious lag sakta hai, lekin yeh loop stick karne se:
+
+Tumhare paas relevant, reliable tests hote hain
+
+Tum confidently refactor kar sakte ho bina functionality तोड़े
+
+Tumhara software design naturally improve hota hai
+
+    ------------------x----------------
 
 On the face of it this may seem tedious but sticking to the feedback loop is important.
 
