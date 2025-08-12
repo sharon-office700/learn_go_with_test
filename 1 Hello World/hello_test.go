@@ -46,13 +46,13 @@ func Test(t *testing.T) {
 			got := Hello("Sonu", key)
 			want := value + ", Sonu"
 			if got == want {
+				assertCorrectMessage(t, got, want)
 			} else if key == "" && value == "" {
 				got = Hello("", "")
 				want = "Hello, World"
 				fmt.Println("Default case triggered ==> ", got, "\t", want, " ✅ ")
 				assertCorrectMessage(t, got, want)
 			}
-			assertCorrectMessage(t, got, want)
 		}
 
 	})
