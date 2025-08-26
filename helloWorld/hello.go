@@ -20,9 +20,7 @@ const englishHelloPrefix = "Hello, "
 
 
 // we can leave the main function as blank it's job is only to serve as an entry point, jitna bhi function call karna hai with / without parameters vo sab testing suite se ho jaayega
-func main() {
 
-}
 
 
 func Hello(name, language string) string {

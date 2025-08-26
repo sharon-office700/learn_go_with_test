@@ -1,3 +1,5 @@
+// ye file ka name change karke txt se md(markdown file ) kar diya hai taaki pkgsite isse jab parse kare tab "package main" dekh k confuse na ho jaaye 
+
 package main
 
 import (
