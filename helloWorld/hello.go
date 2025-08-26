@@ -1,4 +1,4 @@
-package main
+package helloworld
 
 // func main() {
 // 	fmt.Println("Hello, World")
